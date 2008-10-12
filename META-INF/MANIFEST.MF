@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Testlink
+Bundle-SymbolicName: net.hillsdon.testlink; singleton:=true
+Bundle-Version: 1.1.1
+Bundle-Activator: net.hillsdon.testlink.plugin.TestlinkPlugin
+Require-Bundle: org.eclipse.ui,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.junit,
+ org.eclipse.jdt.ui,
+ org.eclipse.jface.text,
+ org.eclipse.core.resources,
+ org.eclipse.ui.ide,
+ org.eclipse.ui.editors
+Eclipse-LazyStart: true
+Bundle-Vendor: matt@hillsdon.net

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+<extension point="org.eclipse.ui.commands">
+      <category
+            name="TestLink"
+            id="net.hillsdon.testlink.category"/>
+      <command
+            categoryId="net.hillsdon.testlink.category"
+            name="Jump to test/implementation"
+            id="net.hillsdon.testlink.actions.CodeTestToggleAction"/>
+   </extension>
+   <extension
+         point="org.eclipse.ui.bindings">
+         <key
+               schemeId="org.eclipse.ui.defaultAcceleratorConfiguration"
+               sequence="M1+M3+T"
+               commandId="net.hillsdon.testlink.actions.CodeTestToggleAction">
+         </key>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSetPartAssociations">
+      <actionSetPartAssociation targetID="net.hillsdon.testlink.actionSet">
+         <part id="org.eclipse.jdt.ui.CompilationUnitEditor"/>
+      </actionSetPartAssociation>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            label="testlink"
+            visible="true"
+            id="net.hillsdon.testlink.actionSet">
+         <action
+               class="net.hillsdon.testlink.actions.CodeTestToggleAction"
+               icon="icons/testlink.gif"
+               id="net.hillsdon.testlink.actions.CodeTestToggleAction"
+               label="Jump between test/implementation"
+               toolbarPath="org.eclipse.ui.workbench.navigate/history.group"
+               definitionId="net.hillsdon.testlink.actions.CodeTestToggleAction"
+               tooltip="Jump between code and the associated test."/>
+      </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="org.eclipse.jdt.junit.preferences"
+            class="net.hillsdon.testlink.preferences.TestlinkPreferencePage"
+            id="net.hillsdon.testlink.preferences.TestlinkPreferencePage"
+            name="Linking">
+      </page>
+   </extension>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="net.hillsdon.testlink.preferences.PreferenceInitializer">
+      </initializer>
+   </extension>
+   <extension point="org.eclipse.ui.propertyPages">
+     <page id="net.hillsdon.testlink.preferences.TestlinkPreferencePage"
+       name="testlink"
+       class="net.hillsdon.testlink.preferences.TestlinkPreferencePage">
+       
+       <enabledWhen>
+         <adapt type="org.eclipse.core.resources.IProject">
+		   <test property="org.eclipse.core.resources.projectNature" value="org.eclipse.jdt.core.javanature"/>
+		 </adapt>         
+       </enabledWhen>
+     </page>
+   </extension>
+</plugin>
