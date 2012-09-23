@@ -1,0 +1,8 @@
+Ecipse plugin that provides an action to jump between JUnit test and
+implementation based on naming conventions.
+
+https://github.com/mthx/eclipse-testlink
+
+This plugin requires
+https://github.com/mthx/eclipse-selection2resource
+
